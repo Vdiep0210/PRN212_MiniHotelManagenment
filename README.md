@@ -66,18 +66,3 @@ This repository contains **two assignments (A01 and A02)** for the PRN212 course
   }
 }
 
-# Initialize repository
-git init
-
-# Add all files
-git add .
-
-# Commit initial version
-git commit -m "Add A01 (LINQ) and A02 (EF Core) solutions"
-
-# Link to GitHub repo
-git remote add origin https://github.com/<username>/MiniHotelManagement.git
-
-# Push to main
-git branch -M main
-git push -u origin main
