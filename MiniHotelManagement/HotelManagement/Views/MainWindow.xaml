@@ -1,0 +1,71 @@
+﻿<Window x:Class="HotelManagement.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Hotel Management"
+        Height="600" Width="900"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="8">
+        <TabControl>
+            <!-- Tab 1: Customers -->
+            <TabItem Header="Customers">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBox x:Name="txtSearchCust" Width="250" />
+                        <Button Content="Search" Click="BtnSearchCustomer_Click" Margin="8,0,0,0"/>
+                        <Button Content="New" Click="BtnNewCustomer_Click" Margin="8,0,0,0"/>
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgCustomers"
+                              Grid.Row="1"
+                              AutoGenerateColumns="False"
+                              IsReadOnly="True"
+                              SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding CustomerId}" Width="60"/>
+                            <DataGridTextColumn Header="Full Name" Binding="{Binding CustomerFullName}" Width="*"/>
+                            <DataGridTextColumn Header="Email" Binding="{Binding EmailAddress}" Width="200"/>
+                            <DataGridTextColumn Header="Phone" Binding="{Binding Telephone}" Width="140"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab 2: Rooms -->
+            <TabItem Header="Rooms">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                        <TextBox x:Name="txtSearchRoom" Width="250" />
+                        <Button Content="Search" Click="BtnSearchRoom_Click" Margin="8,0,0,0"/>
+                        <Button Content="New Room" Click="BtnNewRoom_Click" Margin="8,0,0,0"/>
+                        <Button Content="Delete" Click="BtnDeleteRoom_Click" Margin="8,0,0,0" />
+                    </StackPanel>
+
+                    <DataGrid x:Name="dgRooms" Grid.Row="1" 
+                  AutoGenerateColumns="False"
+                  IsReadOnly="True"
+                  SelectionMode="Single"
+                  MouseDoubleClick="dgRooms_MouseDoubleClick">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="RoomID" Binding="{Binding RoomId}" Width="80"/>
+                            <DataGridTextColumn Header="Number" Binding="{Binding RoomNumber}" Width="120"/>
+                            <DataGridTextColumn Header="Type" Binding="{Binding RoomType.RoomTypeName}" Width="200"/>
+                            <DataGridTextColumn Header="Price/day" Binding="{Binding RoomPricePerDay}" Width="120"/>
+                            <DataGridTextColumn Header="Capacity" Binding="{Binding RoomMaxCapacity}" Width="100"/>
+                            <DataGridTextColumn Header="Status" Binding="{Binding RoomStatus}" Width="100"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
